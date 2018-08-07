@@ -6,7 +6,7 @@ Description: Create generic functions that only dispatch to registered
 Version: 0.0.0.9000
 Authors@R: 'Lionel Henry <lionel.hry@gmail.com> [aut, cre]'
 Depends:
-    R (>= 3.5.0)
+    R (>= 3.1.0)
 Imports:
     rlang (>= 0.2.1.9000)
 Remotes:
