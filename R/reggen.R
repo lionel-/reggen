@@ -10,6 +10,8 @@ use_registered <- function(gen, ...) {
   # Evaluate generic in a child of the empty environment with
   # forwarded dots. This zaps lexical dispatch in the caller
   # environment.
-  env <- env(empty_env(), ... = get("..."))
-  eval_bare(expr((!!gen)(...)), env)
+  env <- env(empty_env(), ... = get("..."), gen = gen)
+
+  # Could .Call() into Rf_eval() to avoid one extra call frame
+  eval_bare(quote(gen(...)), env)
 }
