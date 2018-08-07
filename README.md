@@ -14,3 +14,25 @@ mygeneric(mtcars)
 mygeneric("mtcars")
 #> Registered character method
 ```
+
+The downside is extra call frames. The frame #3 below could be
+avoided. It might be possible to get rid of #2 in R 3.5 thanks to new
+`on.exit()` semantics.
+
+```{r}
+traceback()
+#> 6: stop("bam") at zzz.R#21
+#> 5: mygeneric.character(...) at zzz.R#4
+#> 4: gen(...) at eval.R#97
+#> 3: eval_bare(quote(gen(...)), env) at reggen.R#6
+#> 2: use_registered(mygeneric_impl, ...) at zzz.R#15
+#> 1: mygeneric("mtcars")
+```
+
+In general it seems this should be an argument to `UseMethod()`.
+
+```{r}
+mygeneric <- function(...) {
+  UseMethod("mygeneric", lexical = FALSE)
+}
+```
