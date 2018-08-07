@@ -1,0 +1,15 @@
+Package: reggen
+Title: Experimental Pure Registry Dispatch
+Description: Create generic functions that only dispatch to registered
+    methods. They bypass the expensive search through the lexical
+    environment of the caller.
+Version: 0.0.0.9000
+Authors@R: 'Lionel Henry <lionel.hry@gmail.com> [aut, cre]'
+Depends:
+    R (>= 3.5.0)
+Imports:
+    rlang
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
