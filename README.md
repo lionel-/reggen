@@ -1,4 +1,6 @@
 
+[![Travis build status](https://travis-ci.org/lionel-/reggen.svg?branch=master)](https://travis-ci.org/lionel-/reggen)
+
 ```{r}
 library("reggen")
 
